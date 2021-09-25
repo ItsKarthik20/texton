@@ -4,7 +4,8 @@ import './Sidebar.css'
 import DonutLargeIcon from '@mui/icons-material/DonutLarge';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ChatIcon from '@mui/icons-material/Chat';
-import { IconButton, iconButtonClasses } from '@mui/material';
+import { IconButton } from '@mui/material';
+import { SearchOutlined } from '@material-ui/icons';
 
 
 
@@ -25,10 +26,13 @@ function Sidebar() {
                     <MoreVertIcon/>
                     </IconButton>
                 </div>
-
             </div>
 
-            <div className="sidebar__search"></div>
+            <div className="sidebar__search">
+                <SearchOutlined/>
+                <input placeholder="Search" type="text"/>
+
+            </div>
             <div className="sidebar__chats"></div>        
             </div>
     )
