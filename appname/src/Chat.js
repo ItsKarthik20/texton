@@ -7,7 +7,7 @@ import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import MicIcon from "@material-ui/icons/Mic";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import db from "./firebase";
-import firebase from "firebase";
+import firebase from 'firebase/compat/app';
 import "./Chat.css";
 import { Link, useParams } from "react-router-dom";
 import { useStateValue } from "./StateProvider";

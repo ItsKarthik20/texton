@@ -7,7 +7,7 @@ import { useStateValue } from "./StateProvider";
 import { actionTypes } from "./reducer";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
-import firebase from "firebase";
+import firebase from 'firebase/compat/app';
 import { password } from "./constants";
 function SidebarChat(props) {
   const [seed, setSeed] = useState("");

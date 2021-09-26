@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./App.css";
 import Sidebar from "./Sidebar";
 import Chat from "./Chat";
@@ -15,6 +15,7 @@ function App() {
       ? localStorage.getItem("uid")
       : null;
 
+ 
   return (
     <div className="app">
       {!user && !uid ? (
