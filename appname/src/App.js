@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Sidebar from "./Sidebar";
 import Chat from "./Chat";
@@ -6,6 +6,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./Login";
 import { useStateValue } from "./StateProvider";
 import UseWindowDimensions from "./UseWindowDimensions";
+
+
+// App referenced 
 
 function App() {
   const [{ user }, dispatch] = useStateValue();
@@ -15,7 +18,6 @@ function App() {
       ? localStorage.getItem("uid")
       : null;
 
- 
   return (
     <div className="app">
       {!user && !uid ? (

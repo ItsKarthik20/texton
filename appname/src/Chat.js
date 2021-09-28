@@ -33,7 +33,7 @@ function Chat() {
   const [datewise, setDateWise] = useState([]);
   const [clientGMT, setClinetGMT] = useState("");
   const [lastseenPhoto, setLastseen] = useState("");
-  // const [isRecChecked, setIsRecChecked]=useState(1);
+
   const { width } = UseWindowDimensions();
   var hour = 0,
     extramin = 0,
@@ -42,9 +42,7 @@ function Chat() {
     GMTminutes = String(clientGMT).slice(4, 6),
     scrl,
     fix = 0;
-  // console.log(GMTminutes)
-
-  //console.log(roomId);
+  
 
   const [playOn] = useSound(`${process.env.PUBLIC_URL}/send.mp3`, {
     volume: 0.5,
@@ -62,8 +60,7 @@ function Chat() {
       setEmoji(false);
     }
   };
-  //console.log(photoURL);
-  // console.log(messages);
+
   function getTimeZone() {
     var offset = new Date().getTimezoneOffset(),
       o = Math.abs(offset);
@@ -121,30 +118,10 @@ function Chat() {
     }
   };
 
-  // for deletion in future
-
-  // let collectionRef = fs.collection("rooms");
-  // collectionRef.where("name", "==", name)
-  // .get()
-  // .then(querySnapshot => {
-  // querySnapshot.forEach((doc) => {
-  //     doc.ref.delete().then(() => {
-  //     console.log("Document successfully deleted!");
-  //     }).catch(function(error) {
-  //     console.error("Error removing document: ", error);
-  //     });
-  // });
-  // })
-  // .catch(function(error) {
-  // console.log("Error getting documents: ", error);
-  // });
-
   let blankObj = {};
   let TotalObj = [];
   if (messages.length > 0) {
-    // for( const message in messages){
 
-    // }
     let checkDate = "";
     let blankArray = [];
     let dateArray = [];
@@ -156,13 +133,13 @@ function Chat() {
         dateArray.push(messageDate);
       }
     });
-    //let tempObj={};
+
     var index = 0;
     messages.forEach(function (message, i) {
       let messageDate = String(
         new Date(message.timestamp?.toDate()).toUTCString()
       ).slice(5, 12);
-      // console.log((message.timestamp+new Date()?.getTimezoneOffset()))
+
       if (messageDate === dateArray[index] && i == messages.length - 1) {
         blankArray.push({
           messageData: message.message,
@@ -206,24 +183,14 @@ function Chat() {
   useEffect(() => {
     setDateWise(TotalObj);
   }, [messages]);
-  //  console.log(TotalObj);
-  // if(Object.keys(datewise).length !== 0){
-  //     Object.entries(datewise).forEach(
-  //         ([key, value]) => {
-  //             console.log(key);
-  //             value.forEach((item,i)=>{
-  //                 console.log(item.messageData,item.name);
-  //             });
-  //         }
-  //     );
-  // }
+
 
   const messagesEndRef = useRef(null);
   const scrollToBottom = () => {
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
-    // console.log('called')
+  
   };
   useEffect(() => {
     scrollToBottom();
@@ -235,9 +202,7 @@ function Chat() {
 
   useEffect(() => {
     scrollToBottom();
-    //   scrl= document.getElementById("chat__box")
-    //  console.log(messagesEndRef.current.clientHeight);
-    //  scrl.scrollIntoView(false);
+
   }, [messages]);
   const handleDrawerToggle = () => {
     setToggler(!toggler);
@@ -322,9 +287,6 @@ function Chat() {
             {datewise.length > 0
               ? datewise.map(
                   (item, i) =>
-                    //  <div className="chat__body__daystamp">
-                    //     <p className="chat__body__daystamp__title">{Object.keys(item)}</p>
-                    //  </div>
                     item[Object.keys(item)].map((e, i) =>
                       i == 0 ? (
                         <>
@@ -572,40 +534,29 @@ function Chat() {
                         </p>
                       )
                     )
-                  //  console.log(Object.keys(item))
-                  // console.log(item[Object.keys(item)])
+              
                 )
-              : // <div className="chat__body__daystamp">
-                //     <p className="chat__body__daystamp__title"></p>
-                //  </div>
-                // Object.entries(datewise).forEach(
-                //     ([key, value]) => {
-
-                //     {
-                //     value.forEach((item,i)=>{
-                //             console.log(item.messageData,item.name)
-                //         })
-                //     }
-                // }
-                // )
+              : 
 
                 null}
             <div ref={messagesEndRef}></div>
           </div>
 
           <div className="chat__footer">
-            {/* <InsertEmoticonIcon onClick={<Picker onSelect={addEmoji} />}/> */}
+            {}
             <IconButton>
-              {/* <InsertEmoticonIcon /> */}
+              { }
               <InsertEmoticonIcon
                 className="yellow"
                 onClick={() => setEmoji(!emoji)}
               />
               {emoji ? <Picker onSelect={addEmoji} /> : null}
             </IconButton>
-            {/* <span>
-                                <Picker onSelect={addEmoji} />
-                            </span> */}
+            {
+
+
+
+            }
 
             <form>
               <input
@@ -944,23 +895,9 @@ function Chat() {
                         </p>
                       )
                     )
-                  //  console.log(Object.keys(item))
-                  // console.log(item[Object.keys(item)])
                 )
-              : // <div className="chat__body__daystamp">
-                //     <p className="chat__body__daystamp__title"></p>
-                //  </div>
-                // Object.entries(datewise).forEach(
-                //     ([key, value]) => {
-
-                //     {
-                //     value.forEach((item,i)=>{
-                //             console.log(item.messageData,item.name)
-                //         })
-                //     }
-                // }
-                // )
-
+              : 
+           
                 null}
             <div ref={messagesEndRef} id="chat__box"></div>
           </div>
